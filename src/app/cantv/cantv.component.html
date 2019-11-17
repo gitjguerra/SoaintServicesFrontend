@@ -1,0 +1,27 @@
+<div class="row">
+
+  <div class="col-md-6 login-container">
+    <h2 style="margin: auto">Soaint Services - Cantv Poc</h2>
+    <form [formGroup]="cantvForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nphone">número teléfono:</label>
+        <input type="text" class="form-control" formControlName="nphone" id="nphone" autocomplete="off">
+        <div class="error" *ngIf="cantvForm.controls['nphone'].hasError('required') && cantvForm.controls['nphone'].touched">El número de telefono es requerido</div>
+      </div>
+      <div class="form-group">
+        <label for="nmobile">número móvil:</label>
+        <input type="text" class="form-control" formControlName="nmobile" id="nmobile" autocomplete="off">
+        <div class="error" *ngIf="cantvForm.controls['nmobile'].hasError('required') && cantvForm.controls['nmobile'].touched">El número de móvil es requerido</div>
+      </div>
+      <div class="form-group">
+        <label for="mail">correo:</label>
+        <input type="text" class="form-control" formControlName="mail" id="mail" autocomplete="off">
+        <div class="error" *ngIf="cantvForm.controls['mail'].hasError('required') && cantvForm.controls['mail'].touched">La dirección de correo es requerida</div>
+      </div>
+      <button class="btn btn-success" [disabled]="cantvForm.invalid">Login</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Existen errores en la pagina, por favor revise.</div>
+      </div>
+    </form>
+  </div>
+</div>
